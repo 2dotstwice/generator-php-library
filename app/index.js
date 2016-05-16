@@ -9,8 +9,12 @@ module.exports = generators.Base.extend({
           message: 'PHP vendor namespace',
           store: true,
           validate: function (input) {
-            
-          }
+            if (!this._is_valid_namespace(input)) {
+              return 'invalid PHP namespace name "' + input + '"';
+            }
+
+            return true;
+          }.bind(this)
         },
         {
           type: 'input',
@@ -30,7 +34,14 @@ module.exports = generators.Base.extend({
         {
           type: 'input',
           name: 'project_namespace',
-          message: 'PHP project namespace'
+          message: 'PHP project namespace',
+          validate: function (input) {
+            if (!this._is_valid_namespace(input)) {
+              return 'invalid PHP namespace name "' + input + '"';
+            }
+
+            return true;
+          }.bind(this)
         },
         {
           type: 'input',
@@ -183,5 +194,9 @@ module.exports = generators.Base.extend({
     }
 
     return namespace;
+  },
+
+  _is_valid_namespace: function(input) {
+    return null !== input.match(/^[a-zA-Z][a-zA-Z\d]+$/);
   }
 });
