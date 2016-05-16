@@ -1,0 +1,14 @@
+{
+  "name": "generator-2dotstwice-php-library",
+  "version": "0.1.0",
+  "description": "PHP library generator, following 2dotstwice guidelines and best practices",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.23.0"
+  }
+}
