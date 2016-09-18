@@ -192,7 +192,7 @@ module.exports = generators.Base.extend({
   _php_namespace: function (parts, add_trailing_namespace_separator) {
     parts = parts.map(
       function (part) {
-        return part.replace(new RegExp('\\\\', 'g'), '\\\\');
+        return part.replace(new RegExp('\\\\', 'g'), '\\');
       }
     );
 
