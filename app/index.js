@@ -182,21 +182,31 @@ module.exports = generators.Base.extend({
   },
 
   _composer_package_name: function (vendor, project) {
-    return vendor.toLowerCase() + '/' + project.toLowerCase();
+    return vendor.toLowerCase() + '/' + this._composer_project_name(project);
+  },
+
+  _composer_project_name: function (project) {
+    return project.toLowerCase().replace(new RegExp('\\\\', 'g'), '-');
   },
 
   _php_namespace: function (parts, add_trailing_namespace_separator) {
-    var namespace_seperator = '\\';
-    var namespace =  parts.join(namespace_seperator);
+    parts = parts.map(
+      function (part) {
+        return part.replace(new RegExp('\\\\', 'g'), '\\');
+      }
+    );
+
+    var namespace_separator = '\\';
+    var namespace =  parts.join(namespace_separator);
 
     if (add_trailing_namespace_separator) {
-      namespace += namespace_seperator;
+      namespace += namespace_separator;
     }
 
     return namespace;
   },
 
   _is_valid_namespace: function(input) {
-    return null !== input.match(/^[a-zA-Z][a-zA-Z\d]+$/);
+    return null !== input.match(/^[a-zA-Z][a-zA-Z\d\\]*$/);
   }
 });
