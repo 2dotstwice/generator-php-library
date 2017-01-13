@@ -100,9 +100,11 @@ module.exports = generators.Base.extend({
       "type": "library",
       "license": "Apache-2.0",
       "authors": [],
-      "require": {},
+      "require": {
+        "php": "~5.6 || >=7.0"
+      },
       "require-dev": {
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": "~5.7",
         "squizlabs/php_codesniffer": "~2.3",
         "phing/phing": "~2.11",
         "satooshi/php-coveralls": "~0.7"
