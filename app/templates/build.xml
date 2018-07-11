@@ -40,7 +40,7 @@
 
     <target name="report-to-coveralls">
         <exec
-                command="./vendor/bin/coveralls -v"
+                command="./vendor/bin/php-coveralls -v"
                 passthru="true"
                 checkreturn="true" />
     </target>

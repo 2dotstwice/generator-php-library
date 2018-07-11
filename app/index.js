@@ -101,13 +101,13 @@ module.exports = generators.Base.extend({
       "license": "Apache-2.0",
       "authors": [],
       "require": {
-        "php": "~5.6 || >=7.0"
+        "php": "^7.1"
       },
       "require-dev": {
-        "phpunit/phpunit": "~5.7",
-        "squizlabs/php_codesniffer": "~2.3",
-        "phing/phing": "~2.11",
-        "satooshi/php-coveralls": "~0.7"
+        "phpunit/phpunit": "^7.0",
+        "squizlabs/php_codesniffer": "^2.3",
+        "phing/phing": "^2.16",
+        "php-coveralls/php-coveralls": "^2.1"
       },
       "autoload": {
         "psr-4": autoload
